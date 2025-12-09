@@ -1,19 +1,28 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { createSession, getSession, destroySession } from '@/lib/auth/session'
-import { createMockNextCookies } from '../setup/mocks/cookies'
 
-// Mock Next.js cookies
-vi.mock('next/headers', () => ({
-  cookies: createMockNextCookies(),
-}))
+// Mock Next.js cookies without referencing top-level imports (avoid vi.mock hoisting issues)
+vi.mock('next/headers', async () => {
+  const mod = await import('../setup/mocks/cookies')
+  return {
+    cookies: mod.createMockNextCookies(),
+  }
+})
 
 // Mock JWT_SECRET
 vi.stubEnv('JWT_SECRET', 'test-secret-key-for-testing')
 vi.stubEnv('NODE_ENV', 'test')
 
 describe('Session Management', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     vi.clearAllMocks()
+    // Ensure cookie store is cleared between tests
+    const { cookies } = await import('next/headers')
+    const mockCookies = await cookies()
+    const all = mockCookies.getAll()
+    for (const c of all) {
+      mockCookies.delete(c.name)
+    }
   })
 
   describe('createSession', () => {

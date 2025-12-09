@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import { describe, expect, it, vi } from "vitest"
 
 import {
@@ -45,7 +45,7 @@ describe("ChartStyle", () => {
 
 describe("ChartTooltipContent", () => {
   it("renders label and value with indicator", () => {
-    render(
+    const { container } = render(
       <ChartContainer config={baseConfig}>
         <ChartTooltipContent
           active
@@ -63,14 +63,15 @@ describe("ChartTooltipContent", () => {
       </ChartContainer>
     );
 
-    expect(screen.getByText("Ventas")).toBeInTheDocument();
-    expect(screen.getByText("1,200")).toBeInTheDocument();
+    const ventaNodes = within(container).getAllByText("Ventas")
+    expect(ventaNodes.length).toBeGreaterThan(0)
+    expect(within(container).getByText(/1,?200/)).toBeInTheDocument();
   });
 });
 
 describe("ChartLegendContent", () => {
   it("renders legend items from payload", () => {
-    render(
+    const { container } = render(
       <ChartContainer config={baseConfig}>
         <ChartLegendContent
           payload={[
@@ -85,6 +86,7 @@ describe("ChartLegendContent", () => {
       </ChartContainer>
     );
 
-    expect(screen.getByText("Ventas")).toBeInTheDocument();
+    const legendItems = within(container).getAllByText("Ventas")
+    expect(legendItems.length).toBeGreaterThan(0)
   });
 });

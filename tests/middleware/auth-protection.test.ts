@@ -22,6 +22,20 @@ vi.mock('jose', () => ({
 // Mock JWT_SECRET
 vi.stubEnv('JWT_SECRET', 'test-secret-key-for-testing')
 
+// Stub NextResponse.next to avoid Headers instance checks in test environment
+// Return a minimal response-like object with status and headers.get/set
+const originalNext = NextResponse.next
+vi.spyOn(NextResponse as any, 'next').mockImplementation((opts?: any) => {
+  const headers = new Map<string, string>()
+  return {
+    status: 200,
+    headers: {
+      get: (k: string) => headers.get(k) ?? null,
+      set: (k: string, v: string) => headers.set(k, v),
+    },
+  }
+})
+
 describe('Middleware - Route Protection', () => {
   beforeEach(() => {
     vi.clearAllMocks()
