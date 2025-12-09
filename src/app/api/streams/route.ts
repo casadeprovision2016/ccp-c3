@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { nanoid } from 'nanoid'
 
+type StreamInsertPayload = {
+  title?: string
+  description?: string | null
+  stream_url?: string
+  platform?: string | null
+  scheduled_date?: string
+  status?: string | null
+  thumbnail_url?: string | null
+  created_by?: string | null
+}
+
 // Public endpoint - no auth required
 export async function GET() {
   const db = await getDB()
@@ -16,7 +27,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const data = await request.json()
+  const data = (await request.json()) as StreamInsertPayload
   const db = await getDB()
 
   const id = nanoid()

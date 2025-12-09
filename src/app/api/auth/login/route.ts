@@ -4,7 +4,10 @@ import { verifyPassword } from '@/lib/auth/password'
 import { createSession } from '@/lib/auth/session'
 
 export async function POST(request: NextRequest) {
-  const { email, password } = await request.json()
+  const { email, password } = (await request.json()) as {
+    email?: string
+    password?: string
+  }
 
   if (!email || !password) {
     return NextResponse.json({ error: 'Email and password are required' }, { status: 400 })

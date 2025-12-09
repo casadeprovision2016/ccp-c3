@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 
+type EventUpdatePayload = {
+  title?: string
+  description?: string | null
+  event_date?: string
+  end_date?: string | null
+  location?: string | null
+  event_type?: string | null
+  image_url?: string | null
+  status?: string
+  follow_up_needed?: boolean
+}
+
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -12,7 +24,7 @@ export async function PATCH(
   }
 
   const { id } = await params
-  const data = await request.json()
+  const data = (await request.json()) as EventUpdatePayload
   const db = await getDB()
 
   const updates: string[] = []

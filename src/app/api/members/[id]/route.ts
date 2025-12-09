@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 
+type MemberUpdatePayload = {
+  full_name?: string
+  email?: string | null
+  phone?: string | null
+  address?: string | null
+  birth_date?: string | null
+  baptism_date?: string | null
+  membership_date?: string | null
+  status?: string | null
+  notes?: string | null
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -35,7 +47,7 @@ export async function PATCH(
   }
 
   const { id } = await params
-  const data = await request.json()
+  const data = (await request.json()) as MemberUpdatePayload
   const db = await getDB()
 
   const updates: string[] = []

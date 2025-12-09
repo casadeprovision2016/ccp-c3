@@ -4,7 +4,12 @@ import { hashPassword } from '@/lib/auth/password'
 import { nanoid } from 'nanoid'
 
 export async function POST(request: NextRequest) {
-  const { email, password, name, role } = await request.json()
+  const { email, password, name, role } = (await request.json()) as {
+    email?: string
+    password?: string
+    name?: string
+    role?: string
+  }
 
   if (!email || !password || !name || !role) {
     return NextResponse.json(

@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 
+type MinistryUpdatePayload = {
+  name?: string
+  description?: string | null
+  leader_id?: string | null
+  meeting_schedule?: string | null
+  status?: string | null
+}
+
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -12,7 +20,7 @@ export async function PATCH(
   }
 
   const { id } = await params
-  const data = await request.json()
+  const data = (await request.json()) as MinistryUpdatePayload
   const db = await getDB()
 
   const updates: string[] = []

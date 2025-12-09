@@ -3,6 +3,17 @@ import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 import { nanoid } from 'nanoid'
 
+type DonationInsertPayload = {
+  donor_name?: string
+  amount?: number
+  donation_type?: string
+  payment_method?: string
+  donation_date?: string
+  notes?: string
+  receipt_number?: string
+  follow_up_needed?: boolean
+}
+
 export async function GET() {
   const session = await getSession()
   if (!session || !['admin', 'leader'].includes(session.role)) {
@@ -23,7 +34,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const data = await request.json()
+  const data = (await request.json()) as DonationInsertPayload
   const db = await getDB()
 
   const id = nanoid()

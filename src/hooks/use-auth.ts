@@ -18,8 +18,12 @@ export function useAuth() {
   const loadUser = useCallback(async () => {
     try {
       const res = await fetch('/api/auth/me')
-      const data = await res.json()
-      setUser(data.user)
+      if (!res.ok) {
+        throw new Error('Unable to fetch user')
+      }
+
+      const data: { user?: User | null } = await res.json()
+      setUser(data.user ?? null)
     } catch {
       setUser(null)
     } finally {

@@ -2,6 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 
+type StreamUpdatePayload = {
+  title?: string
+  description?: string | null
+  stream_url?: string
+  platform?: string | null
+  scheduled_date?: string
+  status?: string | null
+  thumbnail_url?: string | null
+}
+
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -12,7 +22,7 @@ export async function PATCH(
   }
 
   const { id } = await params
-  const data = await request.json()
+  const data = (await request.json()) as StreamUpdatePayload
   const db = await getDB()
 
   const updates: string[] = []

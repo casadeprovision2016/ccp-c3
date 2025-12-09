@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 
+type DonationUpdatePayload = {
+  donor_name?: string
+  amount?: number
+  donation_type?: string
+  payment_method?: string
+  donation_date?: string
+  notes?: string
+  receipt_number?: string
+  follow_up_needed?: boolean
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -35,7 +46,7 @@ export async function PATCH(
   }
 
   const { id } = await params
-  const data = await request.json()
+  const data = (await request.json()) as DonationUpdatePayload
   const db = await getDB()
 
   const updates: string[] = []

@@ -9,6 +9,27 @@ import ContactSection from '@/components/home/ContactSection'
 import MisionesSection from '@/components/home/MisionesSection'
 import Footer from '@/components/home/Footer'
 
+type PublicEvent = {
+  id: string
+  title: string
+  description: string | null
+  event_date: string
+  end_date: string | null
+  location: string | null
+  event_type: string | null
+  status: string
+}
+
+type PublicStream = {
+  id: string
+  title: string
+  description: string | null
+  stream_url: string
+  platform: string | null
+  scheduled_date: string
+  status: string | null
+}
+
 export default async function Home() {
   const db = await getDB()
 
@@ -20,7 +41,7 @@ export default async function Home() {
       ORDER BY event_date ASC
       LIMIT 6
     `)
-    .all()
+    .all<PublicEvent>()
 
   // Buscar próximas transmisiones (scheduled o live)
   const { results: streams } = await db
@@ -30,7 +51,7 @@ export default async function Home() {
       ORDER BY scheduled_date ASC
       LIMIT 3
     `)
-    .all()
+    .all<PublicStream>()
 
   return (
     <div className="min-h-screen">

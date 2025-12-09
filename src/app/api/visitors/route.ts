@@ -3,6 +3,18 @@ import { getDB } from '@/lib/db/client'
 import { getSession } from '@/lib/auth/session'
 import { nanoid } from 'nanoid'
 
+type VisitorInsertPayload = {
+  full_name?: string
+  email?: string | null
+  phone?: string | null
+  visit_date?: string
+  source?: string | null
+  interested_in?: string[] | null
+  notes?: string | null
+  followed_up?: boolean
+  follow_up_needed?: boolean
+}
+
 export async function GET() {
   const session = await getSession()
   if (!session || !['admin', 'leader'].includes(session.role)) {
@@ -23,7 +35,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const data = await request.json()
+  const data = (await request.json()) as VisitorInsertPayload
   const db = await getDB()
 
   const id = nanoid()
