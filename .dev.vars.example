@@ -1,2 +1,6 @@
 # Load .env.development* files when running `wrangler dev`
-NEXTJS_ENV=development
+NEXTJS_ENV=deploy
+
+# JWT Secret for local development
+# In production, use: wrangler secret put JWT_SECRET
+JWT_SECRET=CBJn03oEfZ6Dt7nqNZjhZrD3OsHKqA84
