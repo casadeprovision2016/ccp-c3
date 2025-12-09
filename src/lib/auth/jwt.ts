@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
 type Role = 'admin' | 'leader' | 'member'
 
@@ -9,16 +10,14 @@ export type JwtPayload = {
   role: Role
 }
 
-import { getCloudflareContext } from '@opennextjs/cloudflare'
-
 async function getJwtSecret(): Promise<Uint8Array> {
   let secret = process.env.JWT_SECRET
 
   if (!secret) {
     try {
       const { env } = await getCloudflareContext({ async: true })
-      secret = (env as any).JWT_SECRET
-    } catch (e) {
+      secret = (env as CloudflareEnv).JWT_SECRET
+    } catch {
       // Ignore error if context is not available
     }
   }

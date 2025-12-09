@@ -39,10 +39,10 @@
 	/**
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 * 
+	 * Note: JWT_SECRET is stored as a Cloudflare secret (wrangler secret put JWT_SECRET)
+	 * For local development, use .dev.vars file
 	 */
-	"vars": {
-		"JWT_SECRET": "dev-jwt-secret-change-in-production"
-	}
 	/**
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
