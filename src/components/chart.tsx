@@ -102,21 +102,45 @@ ${colorConfig
 }
 
 const ChartTooltip = RechartsPrimitive.Tooltip
-type ChartTooltipProps = RechartsPrimitive.TooltipProps<number, string>
-type ChartTooltipPayloadItem = NonNullable<ChartTooltipProps["payload"]>[number]
-type LegendPayloadItem = NonNullable<RechartsPrimitive.LegendProps["payload"]>[number]
-type ChartTooltipContentProps = ChartTooltipProps &
-  React.ComponentProps<"div"> & {
-    hideLabel?: boolean
-    hideIndicator?: boolean
-    indicator?: "line" | "dot" | "dashed"
-    nameKey?: string
-    labelKey?: string
-    labelClassName?: ClassValue
-    className?: ClassValue
-    payload?: ChartTooltipPayloadItem[]
-    color?: string
+type ChartTooltipValue = number | string | null | undefined
+type ChartTooltipPayloadItem = {
+  dataKey?: string | number
+  name?: string
+  type?: string
+  value?: ChartTooltipValue
+  color?: string
+  payload?: {
+    fill?: string
+    [key: string]: unknown
   }
+}
+type LegendPayloadItem = {
+  color?: string
+  dataKey?: string | number
+  type?: string
+  value?: string | number
+}
+type ChartTooltipContentProps = React.ComponentProps<"div"> & {
+  active?: boolean
+  payload?: ChartTooltipPayloadItem[]
+  label?: string | number
+  hideLabel?: boolean
+  hideIndicator?: boolean
+  indicator?: "line" | "dot" | "dashed"
+  nameKey?: string
+  labelKey?: string
+  labelFormatter?: (value: string | number, payload: ChartTooltipPayloadItem[]) => React.ReactNode
+  formatter?: (
+    value: ChartTooltipValue,
+    name: string,
+    item: ChartTooltipPayloadItem,
+    index: number,
+    payload: ChartTooltipPayloadItem[]
+  ) => React.ReactNode
+  labelClassName?: ClassValue
+  className?: ClassValue
+  color?: string
+}
 
 const ChartTooltipContent = React.forwardRef<HTMLDivElement, ChartTooltipContentProps>(
   (
@@ -158,11 +182,11 @@ const ChartTooltipContent = React.forwardRef<HTMLDivElement, ChartTooltipContent
       const valueLabel =
         typeof rawValue === "string" || typeof rawValue === "number"
           ? rawValue
-          : rawValue ?? undefined
+          : undefined
 
       if (labelFormatter && valueLabel !== undefined) {
         return (
-          <div className={cn("font-medium", labelClassName)}>
+            <div className={cn("font-medium", labelClassName as string | undefined)}>
             {labelFormatter(valueLabel, items)}
           </div>
         )
