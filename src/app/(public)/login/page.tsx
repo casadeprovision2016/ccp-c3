@@ -136,7 +136,7 @@ export default function LoginPage() {
             </form>
 
             <div className="text-center text-sm text-gray-600">
-              <p className="mb-2">Crea usuarios en Supabase Auth</p>
+              <p className="mb-2">Las cuentas se gestionan desde el panel administrativo</p>
             </div>
           </CardContent>
         </Card>

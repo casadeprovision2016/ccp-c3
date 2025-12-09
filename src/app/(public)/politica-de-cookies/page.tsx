@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
-const lastUpdate = '18 de noviembre de 2025'
+const lastUpdate = '9 de diciembre de 2025'
 
 const cookieRows = [
   {
-    name: 'sb-access-token / sb-refresh-token',
+    name: 'session',
     type: 'Estrictamente necesarias',
-    provider: 'Supabase',
-    purpose: 'Mantener la sesión autenticada y renovar credenciales seguras.',
-    duration: 'Sesión / según configuración del servidor',
+    provider: 'Centro Cristiano Casa de Provisión',
+    purpose: 'Mantener la sesión autenticada mediante un token JWT en cookie httpOnly.',
+    duration: '7 días',
     consent: 'No'
   },
   {

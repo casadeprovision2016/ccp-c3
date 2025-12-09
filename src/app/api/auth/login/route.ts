@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
   }
 
   const db = await getDB()
+
   const user = await db
     .prepare('SELECT id, email, name, role, password_hash FROM users WHERE email = ?')
     .bind(email)
@@ -24,6 +25,7 @@ export async function POST(request: NextRequest) {
   }
 
   const isValid = await verifyPassword(password, user.password_hash)
+
   if (!isValid) {
     return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
   }

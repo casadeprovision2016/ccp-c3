@@ -9,8 +9,20 @@ export type JwtPayload = {
   role: Role
 }
 
-function getJwtSecret(): Uint8Array {
-  const secret = process.env.JWT_SECRET
+import { getCloudflareContext } from '@opennextjs/cloudflare'
+
+async function getJwtSecret(): Promise<Uint8Array> {
+  let secret = process.env.JWT_SECRET
+
+  if (!secret) {
+    try {
+      const { env } = await getCloudflareContext({ async: true })
+      secret = (env as any).JWT_SECRET
+    } catch (e) {
+      // Ignore error if context is not available
+    }
+  }
+
   if (!secret) {
     throw new Error('JWT_SECRET is not set')
   }
@@ -22,12 +34,12 @@ export async function signJwt(payload: JwtPayload): Promise<string> {
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime('7d')
-    .sign(getJwtSecret())
+    .sign(await getJwtSecret())
 }
 
 export async function verifyJwt(token: string): Promise<JwtPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, getJwtSecret())
+    const { payload } = await jwtVerify(token, await getJwtSecret())
     return payload as JwtPayload
   } catch {
     return null

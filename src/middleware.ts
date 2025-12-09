@@ -1,4 +1,4 @@
-import { jwtVerify } from 'jose'
+import { verifyJwt } from '@/lib/auth/jwt'
 import { NextResponse, type NextRequest } from 'next/server'
 
 type JwtUser = {
@@ -7,27 +7,17 @@ type JwtUser = {
   role?: string
 }
 
-const getJwtSecret = () => {
-  const secret = process.env.JWT_SECRET
-  return secret ? new TextEncoder().encode(secret) : null
-}
-
 async function getJwtUser(token: string | undefined): Promise<JwtUser | null> {
-  const secret = getJwtSecret()
-  if (!token || !secret) return null
-
-  try {
-    const { payload } = await jwtVerify(token, secret)
-    return payload as JwtUser
-  } catch {
-    return null
-  }
+  if (!token) return null
+  const payload = await verifyJwt(token)
+  return payload as unknown as JwtUser
 }
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next({ request })
 
-  const jwtUser = await getJwtUser(request.cookies.get('session')?.value)
+  const token = request.cookies.get('session')?.value
+  const jwtUser = await getJwtUser(token)
   const user = jwtUser
 
   if (!user && request.nextUrl.pathname.startsWith('/panel')) {

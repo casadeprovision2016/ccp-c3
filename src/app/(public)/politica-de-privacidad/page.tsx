@@ -117,7 +117,8 @@ export default function PoliticaDePrivacidadPage() {
           <h2 className="text-2xl font-semibold text-church-blue-dark">9. Medidas de seguridad</h2>
           <ul className="list-disc pl-5 space-y-2 text-slate-700">
             <li>Cifrado TLS en tránsito y protección de credenciales con hashing/rotación.</li>
-            <li>Roles y permisos mínimos en Supabase y el panel administrativo.</li>
+            <li>Roles y permisos mínimos en el panel administrativo y en la base de datos D1.</li>
+            <li>Sesiones firmadas con JWT almacenadas en cookies httpOnly y expiración definida.</li>
             <li>Registros de auditoría y alertas ante accesos inusuales.</li>
             <li>Copias de seguridad cifradas y pruebas periódicas de restauración.</li>
             <li>Protocolos de respuesta ante incidentes y notificación de brechas según arts. 33 y 34 RGPD.</li>
