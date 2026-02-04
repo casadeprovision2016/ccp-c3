@@ -9,6 +9,8 @@ import ContactSection from '@/components/home/ContactSection'
 import MisionesSection from '@/components/home/MisionesSection'
 import Footer from '@/components/home/Footer'
 
+export const dynamic = 'force-dynamic'
+
 type PublicEvent = {
   id: string
   title: string
@@ -33,25 +35,38 @@ type PublicStream = {
 export default async function Home() {
   const db = await getDB()
 
-  // Buscar próximos eventos (scheduled ou ongoing)
-  const { results: events } = await db
-    .prepare(`
-      SELECT * FROM events 
-      WHERE status IN ('scheduled', 'ongoing')
-      ORDER BY event_date ASC
-      LIMIT 6
-    `)
-    .all<PublicEvent>()
+  let events: PublicEvent[] = []
+  let streams: PublicStream[] = []
 
-  // Buscar próximas transmisiones (scheduled o live)
-  const { results: streams } = await db
-    .prepare(`
-      SELECT * FROM streams 
-      WHERE status IN ('scheduled', 'live')
-      ORDER BY scheduled_date ASC
-      LIMIT 3
-    `)
-    .all<PublicStream>()
+  try {
+    // Buscar próximos eventos (scheduled ou ongoing)
+    const ev = await db
+      .prepare(`
+        SELECT * FROM events 
+        WHERE status IN ('scheduled', 'ongoing')
+        ORDER BY event_date ASC
+        LIMIT 6
+      `)
+      .all<PublicEvent>()
+    events = ev?.results ?? []
+
+    // Buscar próximas transmisiones (scheduled ou live)
+    const st = await db
+      .prepare(`
+        SELECT * FROM streams 
+        WHERE status IN ('scheduled', 'live')
+        ORDER BY scheduled_date ASC
+        LIMIT 3
+      `)
+      .all<PublicStream>()
+    streams = st?.results ?? []
+  } catch (err) {
+    // Falha ao acessar D1 (ex.: tabela ausente) — log e fallback vazio para evitar erro de prerender
+    // eslint-disable-next-line no-console
+    console.error('DB access failed during prerender:', err)
+    events = []
+    streams = []
+  }
 
   return (
     <div className="min-h-screen">
