@@ -1,0 +1,171 @@
+2025-12-09T23:01:10.425Z	Initializing build environment...
+2025-12-09T23:01:12.444Z	Success: Finished initializing build environment
+2025-12-09T23:01:12.848Z	Cloning repository...
+2025-12-09T23:01:13.776Z	Detected the following tools from environment: pnpm@10.11.1, nodejs@22.16.0
+2025-12-09T23:01:13.957Z	Installing project dependencies: pnpm install --frozen-lockfile
+2025-12-09T23:01:14.876Z	Lockfile is up to date, resolution step is skipped
+2025-12-09T23:01:15.017Z	Progress: resolved 1, reused 0, downloaded 0, added 0
+2025-12-09T23:01:15.180Z	Packages: +976
+2025-12-09T23:01:15.180Z	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2025-12-09T23:01:16.019Z	Progress: resolved 976, reused 0, downloaded 10, added 0
+2025-12-09T23:01:17.018Z	Progress: resolved 976, reused 0, downloaded 109, added 103
+2025-12-09T23:01:18.026Z	Progress: resolved 976, reused 0, downloaded 246, added 234
+2025-12-09T23:01:19.025Z	Progress: resolved 976, reused 0, downloaded 302, added 293
+2025-12-09T23:01:20.027Z	Progress: resolved 976, reused 0, downloaded 309, added 300
+2025-12-09T23:01:21.604Z	Progress: resolved 976, reused 0, downloaded 310, added 300
+2025-12-09T23:01:22.606Z	Progress: resolved 976, reused 0, downloaded 316, added 303
+2025-12-09T23:01:23.607Z	Progress: resolved 976, reused 0, downloaded 317, added 303
+2025-12-09T23:01:24.607Z	Progress: resolved 976, reused 0, downloaded 368, added 363
+2025-12-09T23:01:25.608Z	Progress: resolved 976, reused 0, downloaded 412, added 397
+2025-12-09T23:01:26.609Z	Progress: resolved 976, reused 0, downloaded 452, added 452
+2025-12-09T23:01:27.609Z	Progress: resolved 976, reused 0, downloaded 499, added 487
+2025-12-09T23:01:28.611Z	Progress: resolved 976, reused 0, downloaded 513, added 498
+2025-12-09T23:01:29.610Z	Progress: resolved 976, reused 0, downloaded 573, added 559
+2025-12-09T23:01:30.611Z	Progress: resolved 976, reused 0, downloaded 687, added 678
+2025-12-09T23:01:31.611Z	Progress: resolved 976, reused 0, downloaded 740, added 725
+2025-12-09T23:01:32.611Z	Progress: resolved 976, reused 0, downloaded 821, added 810
+2025-12-09T23:01:33.612Z	Progress: resolved 976, reused 0, downloaded 939, added 936
+2025-12-09T23:01:34.950Z	Progress: resolved 976, reused 0, downloaded 940, added 936
+2025-12-09T23:01:35.635Z	Progress: resolved 976, reused 0, downloaded 976, added 976, done
+2025-12-09T23:01:35.947Z	.../node_modules/unrs-resolver postinstall$ napi-postinstall unrs-resolver 1.11.1 check
+2025-12-09T23:01:35.948Z	.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+2025-12-09T23:01:35.949Z	.../esbuild@0.21.5/node_modules/esbuild postinstall$ node install.js
+2025-12-09T23:01:35.983Z	.../esbuild@0.25.4/node_modules/esbuild postinstall$ node install.js
+2025-12-09T23:01:35.983Z	.../esbuild@0.18.20/node_modules/esbuild postinstall$ node install.js
+2025-12-09T23:01:36.179Z	.../esbuild@0.18.20/node_modules/esbuild postinstall: Done
+2025-12-09T23:01:36.203Z	.../node_modules/unrs-resolver postinstall: Done
+2025-12-09T23:01:36.225Z	.../esbuild@0.25.4/node_modules/esbuild postinstall: Done
+2025-12-09T23:01:36.228Z	.../esbuild@0.21.5/node_modules/esbuild postinstall: Done
+2025-12-09T23:01:36.231Z	.../esbuild@0.27.0/node_modules/esbuild postinstall$ node install.js
+2025-12-09T23:01:36.253Z	.../node_modules/workerd postinstall$ node install.js
+2025-12-09T23:01:36.295Z	.../sharp@0.33.5/node_modules/sharp install$ node install/check
+2025-12-09T23:01:36.350Z	.../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+2025-12-09T23:01:36.373Z	.../esbuild@0.27.0/node_modules/esbuild postinstall: Done
+2025-12-09T23:01:36.449Z	.../node_modules/better-sqlite3 install: Done
+2025-12-09T23:01:36.496Z	.../node_modules/workerd postinstall: Done
+2025-12-09T23:01:36.569Z	.../sharp@0.33.5/node_modules/sharp install: Done
+2025-12-09T23:01:36.571Z	.../sharp@0.34.5/node_modules/sharp install: Done
+2025-12-09T23:01:37.164Z	
+2025-12-09T23:01:37.165Z	dependencies:
+2025-12-09T23:01:37.165Z	+ @hookform/resolvers 5.2.2
+2025-12-09T23:01:37.165Z	+ @opennextjs/cloudflare 1.14.4
+2025-12-09T23:01:37.165Z	+ @radix-ui/react-accordion 1.2.12
+2025-12-09T23:01:37.165Z	+ @radix-ui/react-alert-dialog 1.1.15
+2025-12-09T23:01:37.165Z	+ @radix-ui/react-aspect-ratio 1.1.8
+2025-12-09T23:01:37.165Z	+ @radix-ui/react-avatar 1.1.11
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-checkbox 1.3.3
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-collapsible 1.1.12
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-context-menu 2.2.16
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-dialog 1.1.15
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-dropdown-menu 2.1.16
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-hover-card 1.1.15
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-label 2.1.8
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-menubar 1.1.16
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-navigation-menu 1.2.14
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-popover 1.1.15
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-progress 1.1.8
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-radio-group 1.3.8
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-scroll-area 1.2.10
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-select 2.2.6
+2025-12-09T23:01:37.168Z	+ @radix-ui/react-separator 1.1.8
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-slider 1.3.6
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-slot 1.2.4
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-switch 1.2.6
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-tabs 1.1.13
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-toast 1.2.15
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-toggle 1.1.10
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-toggle-group 1.1.11
+2025-12-09T23:01:37.169Z	+ @radix-ui/react-tooltip 1.2.8
+2025-12-09T23:01:37.169Z	+ @tanstack/react-query 5.90.12
+2025-12-09T23:01:37.169Z	+ bcryptjs 2.4.3
+2025-12-09T23:01:37.169Z	+ class-variance-authority 0.7.1
+2025-12-09T23:01:37.169Z	+ clsx 2.1.1
+2025-12-09T23:01:37.169Z	+ cmdk 1.1.1
+2025-12-09T23:01:37.169Z	+ date-fns 4.1.0
+2025-12-09T23:01:37.169Z	+ embla-carousel-react 8.6.0
+2025-12-09T23:01:37.171Z	+ hono 4.10.8
+2025-12-09T23:01:37.171Z	+ input-otp 1.4.2
+2025-12-09T23:01:37.171Z	+ jose 5.10.0
+2025-12-09T23:01:37.171Z	+ lucide-react 0.556.0
+2025-12-09T23:01:37.171Z	+ nanoid 5.1.6
+2025-12-09T23:01:37.171Z	+ next 15.5.7
+2025-12-09T23:01:37.172Z	+ next-themes 0.4.6
+2025-12-09T23:01:37.172Z	+ react 19.1.2
+2025-12-09T23:01:37.172Z	+ react-day-picker 9.12.0
+2025-12-09T23:01:37.172Z	+ react-dom 19.1.2
+2025-12-09T23:01:37.172Z	+ react-hook-form 7.68.0
+2025-12-09T23:01:37.172Z	+ react-resizable-panels 3.0.6
+2025-12-09T23:01:37.172Z	+ recharts 3.5.1
+2025-12-09T23:01:37.172Z	+ sonner 2.0.7
+2025-12-09T23:01:37.173Z	+ tailwind-merge 3.4.0
+2025-12-09T23:01:37.173Z	+ tailwindcss-animate 1.0.7
+2025-12-09T23:01:37.174Z	+ vaul 1.1.2
+2025-12-09T23:01:37.175Z	+ zod 4.1.13
+2025-12-09T23:01:37.176Z	
+2025-12-09T23:01:37.176Z	devDependencies:
+2025-12-09T23:01:37.176Z	+ @cloudflare/workers-types 4.20251209.0
+2025-12-09T23:01:37.176Z	+ @eslint/eslintrc 3.3.3
+2025-12-09T23:01:37.176Z	+ @tailwindcss/postcss 4.1.17
+2025-12-09T23:01:37.176Z	+ @testing-library/jest-dom 6.9.1
+2025-12-09T23:01:37.176Z	+ @testing-library/react 16.3.0
+2025-12-09T23:01:37.176Z	+ @types/bcryptjs 2.4.6
+2025-12-09T23:01:37.176Z	+ @types/node 20.19.26
+2025-12-09T23:01:37.176Z	+ @types/react 19.2.7
+2025-12-09T23:01:37.176Z	+ @types/react-dom 19.2.3
+2025-12-09T23:01:37.176Z	+ @vitest/coverage-v8 2.1.9
+2025-12-09T23:01:37.176Z	+ better-sqlite3 12.5.0
+2025-12-09T23:01:37.176Z	+ drizzle-kit 0.31.8
+2025-12-09T23:01:37.176Z	+ drizzle-orm 0.45.0
+2025-12-09T23:01:37.176Z	+ eslint 9.39.1
+2025-12-09T23:01:37.176Z	+ eslint-config-next 15.4.6
+2025-12-09T23:01:37.176Z	+ jsdom 25.0.1
+2025-12-09T23:01:37.176Z	+ tailwindcss 4.1.17
+2025-12-09T23:01:37.176Z	+ tsx 4.21.0
+2025-12-09T23:01:37.176Z	+ typescript 5.9.3
+2025-12-09T23:01:37.176Z	+ vitest 2.1.9
+2025-12-09T23:01:37.177Z	+ wrangler 4.53.0
+2025-12-09T23:01:37.177Z	
+2025-12-09T23:01:37.240Z	Done in 22.9s
+2025-12-09T23:01:37.483Z	Executing user build command: pnpm run build
+2025-12-09T23:01:37.901Z	
+2025-12-09T23:01:37.901Z	> next@0.1.0 build /opt/buildhome/repo
+2025-12-09T23:01:37.901Z	> next build
+2025-12-09T23:01:37.901Z	
+2025-12-09T23:01:38.635Z	⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2025-12-09T23:01:38.639Z	Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-12-09T23:01:38.639Z	This information is used to shape Next.js' roadmap and prioritize features.
+2025-12-09T23:01:38.639Z	You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-12-09T23:01:38.639Z	https://nextjs.org/telemetry
+2025-12-09T23:01:38.639Z	
+2025-12-09T23:01:38.714Z	   ▲ Next.js 15.5.7
+2025-12-09T23:01:38.715Z	
+2025-12-09T23:01:39.686Z	   Creating an optimized production build ...
+2025-12-09T23:01:55.484Z	socket hang up
+2025-12-09T23:01:55.484Z	
+2025-12-09T23:01:55.485Z	Retrying 1/3...
+2025-12-09T23:01:55.625Z	Error: A PostCSS Plugin was passed as a function using require(), but it must be provided as a string.
+2025-12-09T23:01:55.625Z	Read more: https://nextjs.org/docs/messages/postcss-shape
+2025-12-09T23:02:03.283Z	Failed to compile.
+2025-12-09T23:02:03.283Z	
+2025-12-09T23:02:03.284Z	src/app/layout.tsx
+2025-12-09T23:02:03.284Z	An error occurred in `next/font`.
+2025-12-09T23:02:03.284Z	
+2025-12-09T23:02:03.284Z	Error: Malformed PostCSS Configuration
+2025-12-09T23:02:03.284Z	    at /opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:171:41
+2025-12-09T23:02:03.284Z	    at Array.forEach (<anonymous>)
+2025-12-09T23:02:03.284Z	    at getPostCssPlugins (/opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:141:13)
+2025-12-09T23:02:03.284Z	    at async /opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+2025-12-09T23:02:03.284Z	
+2025-12-09T23:02:03.284Z	src/app/layout.tsx
+2025-12-09T23:02:03.284Z	An error occurred in `next/font`.
+2025-12-09T23:02:03.284Z	
+2025-12-09T23:02:03.284Z	Error: Malformed PostCSS Configuration
+2025-12-09T23:02:03.284Z	    at /opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:171:41
+2025-12-09T23:02:03.284Z	    at Array.forEach (<anonymous>)
+2025-12-09T23:02:03.284Z	    at getPostCssPlugins (/opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:141:13)
+2025-12-09T23:02:03.284Z	    at async /opt/buildhome/repo/node_modules/.pnpm/next@15.5.7_react-dom@19.1.2_react@19.1.2__react@19.1.2/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+2025-12-09T23:02:03.284Z	
+2025-12-09T23:02:03.297Z	
+2025-12-09T23:02:03.297Z	> Build failed because of webpack errors
+2025-12-09T23:02:03.339Z	 ELIFECYCLE  Command failed with exit code 1.
+2025-12-09T23:02:03.369Z	Failed: error occurred while running build command
